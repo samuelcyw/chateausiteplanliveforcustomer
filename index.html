@@ -160,7 +160,7 @@
     };
 
     function loadSiteplan() {
-      fetch('siteplan.svg')
+      fetch('siteplan-customer.svg')  // Corrected SVG file name
         .then(res => res.text())
         .then(svg => {
           document.getElementById('floorplan-container').innerHTML = svg;
