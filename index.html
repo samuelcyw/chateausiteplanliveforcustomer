@@ -12,6 +12,7 @@
       min-height: 100vh;
       font-family: 'Segoe UI', 'Arial', sans-serif;
       background: #f6f8fa;
+      overflow-x: hidden;
     }
     .brand-logo-container {
       width: 100vw;
@@ -35,10 +36,11 @@
     .brand-logo:hover {
       box-shadow: 0 8px 36px rgba(0,0,0,0.10);
     }
+    /* FULL WIDTH Siteplan */
     #floorplan-container {
       width: 100vw;
       max-width: 100vw;
-      margin: 0 auto;
+      margin: 0;
       padding: 0;
       border: none;
       background: #fff;
@@ -47,20 +49,19 @@
       justify-content: center;
       align-items: center;
       min-height: 64vh;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.06);
-      border-radius: 22px;
-      margin-bottom: 32px;
+      box-shadow: none;
+      border-radius: 0;
     }
     #floorplan-container svg {
       display: block;
-      width: 98vw !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      min-width: 0 !important;
       height: auto !important;
-      max-width: 1300px;
-      min-width: 320px;
       aspect-ratio: 16/9;
       margin: 0 auto;
-      border-radius: 16px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      border-radius: 0;
+      box-shadow: none;
     }
     .four-pics-container {
       display: flex;
@@ -135,19 +136,22 @@
       alt="Regency Brand Logo">
   </div>
 
-  <!-- Siteplan SVG loads here by JS -->
+  <!-- FULL WIDTH Siteplan SVG loads here by JS -->
   <div id="floorplan-container"></div>
 
-  <!-- Four Images Under Siteplan -->
+  <!-- 8 Images Under Siteplan -->
   <div class="four-pics-container">
     <img src="https://www.dropbox.com/scl/fi/n0f8ukn7mf0r6w4abpbfn/Regency-Village-town-1-_Page_1.jpg?rlkey=2rdwdf9ff90v73kbv6f7929fx&st=tfac5v78&dl=1" alt="Photo 1">
     <img src="https://www.dropbox.com/scl/fi/lwbrxdr6gh74glkxdsjzx/Regency-Village-town-1-_Page_2.jpg?rlkey=0fg0vr8pch3gozvbb1fd6ck6q&st=6rcshska&dl=1" alt="Photo 2">
     <img src="https://www.dropbox.com/scl/fi/31zhlawwo1jwmqk8zcuit/Regency-Village-town-1-_Page_3.jpg?rlkey=mmm33izfy01ihi09n6hz2ki8w&st=7wc4ii4d&dl=1" alt="Photo 3">
     <img src="https://www.dropbox.com/scl/fi/45i1gdql0pnl3nj3ek07w/Regency-Village-town-1-_Page_4.jpg?rlkey=3sm7gafel8dkf1hdfj095t33j&st=823d20m3&dl=1" alt="Photo 4">
+    <img src="https://www.dropbox.com/scl/fi/m6hf93oc9xik2gqgnwh5d/Regency-Village-town-1-_Page_5.jpg?rlkey=foxioqykxhvhjn8zrqrvgt72l&st=jnxc34bu&dl=1" alt="Photo 5">
+    <img src="https://www.dropbox.com/scl/fi/jjqtpwdi1z0daz0hpp2eo/Regency-Village-town-1-_Page_6.jpg?rlkey=1sz876cddxfr2c4ax1aoig1xm&st=srmt4bv5&dl=1" alt="Photo 6">
+    <img src="https://www.dropbox.com/scl/fi/52wz5xg3o90gy7sxmowzp/Regency-Village-town-1-_Page_7.jpg?rlkey=v7t9z2vqdxo2qklsqyn8ropw7&st=yxyj10uk&dl=1" alt="Photo 7">
+    <img src="https://www.dropbox.com/scl/fi/m9xixi4xy9ik2tvd1lgrq/Regency-Village-town-1-_Page_8.jpg?rlkey=8slnr6ie8de9yfigjb2ok4s42&st=cygd1tpk&dl=1" alt="Photo 8">
   </div>
 
   <script>
-    // Updated Dropbox JSON data link
     const DATA_URL = 'https://dl.dropboxusercontent.com/scl/fi/ialh4cykgdl7cjspklzam/status.json?rlkey=wfrhm79k3cxtcrv9ph4d659mm&st=r06syijc&dl=1';
     const STATUS_COLOR = {
       "Available": "#CCEEEE",
@@ -156,7 +160,7 @@
     };
 
     function loadSiteplan() {
-      fetch('siteplan-customer.svg') // Updated SVG filename
+      fetch('siteplan.svg')
         .then(res => res.text())
         .then(svg => {
           document.getElementById('floorplan-container').innerHTML = svg;
